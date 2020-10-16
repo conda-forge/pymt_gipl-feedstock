@@ -1,5 +1,5 @@
 {% set name = "pymt_gipl" %}
-{% set version = "0.1" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: bf96a2c99d6a0b0fb577570bb192cbe9b98a686a9ae79590b031a483e41d1953
+  sha256: 6bce6c3dde20540bb7c5c84b260f4bf393f5c91b0d2810c432989fca8c90c3b3
 
 build:
-  number: 2
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [win]
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [win]
 
 requirements:
   build:
