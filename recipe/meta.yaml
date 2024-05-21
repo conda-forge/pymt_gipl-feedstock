@@ -10,7 +10,7 @@ source:
   sha256: 6bce6c3dde20540bb7c5c84b260f4bf393f5c91b0d2810c432989fca8c90c3b3
 
 build:
-  number: 6
+  number: 7
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
   skip: true  # [py>=312]
@@ -18,18 +18,18 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
     - pip
     - cython
     - numpy
-    - model_metadata
+    - model_metadata 0.7.0
     - bmi-fortran 1.2
     - gipl
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - bmi-fortran 1.2
     - gipl
 
