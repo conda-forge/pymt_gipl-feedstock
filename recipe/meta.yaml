@@ -25,7 +25,7 @@ requirements:
     - pip
     - cython
     - numpy
-    - model_metadata
+    - model_metadata 0.7.0
     - bmi-fortran 1.2
     - gipl
   run:
