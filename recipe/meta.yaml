@@ -23,6 +23,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools<60.0
     - cython
     - numpy<2
     - model_metadata=0.7.0
