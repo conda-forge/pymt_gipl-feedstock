@@ -32,6 +32,10 @@ requirements:
     - setuptools
     - cython
     - numpy
+    - meson-python
+    - ninja
+    - pkg-config
+    - python-build
     - model_metadata
     - bmi-fortran =1.2.1
     - gipl
