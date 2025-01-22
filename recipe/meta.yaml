@@ -1,5 +1,5 @@
 {% set name = "pymt_gipl" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,12 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 6bce6c3dde20540bb7c5c84b260f4bf393f5c91b0d2810c432989fca8c90c3b3
+  sha256: 78915516556eb87ba814c0a9de9cc9f7779dc3f603e4fbc2a14760eb2d19586a
 
 build:
-  number: 9
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
   skip: true  # [win]
-  skip: true  # [py>=312]
+  skip: true  # [py<310]
 
 requirements:
   build:
@@ -21,21 +20,30 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - meson-python                           # [build_platform != target_platform]
+    - ninja                                  # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
+    - bmi-fortran =1.2.1                     # [build_platform != target_platform]
+    - gipl                                   # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
     - pip
-    - setuptools <60.0
+    - setuptools
     - cython
-    - numpy <2
-    - model_metadata =0.7.0
-    - bmi-fortran =1.2
+    - numpy
+    - meson-python
+    - ninja
+    - pkg-config
+    - python-build
+    - model_metadata
+    - bmi-fortran =1.2.1
     - gipl
   run:
     - python
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - gipl
 
 test:
