@@ -33,11 +33,11 @@ requirements:
     - cython
     - numpy
     - model_metadata
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - gipl
   run:
     - python
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - gipl
 
 test:
