@@ -13,7 +13,7 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
-  skip: true  # [py>=312]
+  skip: true  # [py<310]
 
 requirements:
   build:
@@ -27,10 +27,10 @@ requirements:
   host:
     - python
     - pip
-    - setuptools <60.0
+    - setuptools
     - cython
-    - numpy <2
-    - model_metadata =0.7.0
+    - numpy
+    - model_metadata
     - bmi-fortran =1.2
     - gipl
   run:
